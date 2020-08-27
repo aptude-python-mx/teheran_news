@@ -6,13 +6,12 @@ pprint = Resources()
 news = Get_news()
 
 #Test get_links
-
-links = news.get_links("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=2&tp=697")
+"""links = news.get_links("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=2&tp=697")
 #links = news.get_links("https://www.tehrantimes.com/archive?tp=697", 
 #                       "https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=2",
-#                       "https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=7&tp=698")
+#                       "https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=3&tp=696")
 #print(links)
-pprint.pretty(links)
+pprint.pretty(links)"""
 
 #Test get_elements
 """elements = news.get_elements("https://www.tehrantimes.com/news/451619/Medicinal-plants-hold-potential-for-realizing-surge-in-production")

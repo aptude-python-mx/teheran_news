@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pprint
+from time import sleep
 
 
 class Resources():
@@ -18,11 +19,12 @@ class Resources():
         
         img = soup.find(class_="third-news")
         res = []
-        for i in img.find_all('a', href=True):
-            full_link = 'https://www.tehrantimes.com' + i['href']
+        for link in img.find_all('a', href=True):
+            full_link = 'https://www.tehrantimes.com' + link['href']
             if full_link not in res: 
                 res.append(full_link) 
         return(res)
+
 
     @classmethod
     def element_resource(cls, links):
@@ -31,7 +33,7 @@ class Resources():
         #topic
         res = []
         category = soup.find(class_="breadcrumb")
-        enlaces = category.find('li')
+        enlaces = category.find_all('li')
         for enlace in enlaces:
             res.append(enlace.text)
 

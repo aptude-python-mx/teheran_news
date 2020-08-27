@@ -7,10 +7,18 @@ Prerequsites
 
 Python3 and beautifulsoup library installed
 -------------------------------------------
+
+***********
+*IMPORTANT*
+***********
+Due the high quantity of request of some functionalities, sometimes it will throws you an AtributteError, if you 
+try to enter to the pages that you are using for testing at the same time, you could see the error 
+(503 Backend fetch failed)
+
 Usage
 
 The main file (app.py) has commented the four functionalities (get_links, get_elements, get_previews and finder)
-you can uncomment each block to see how their work
+you can uncomment each block to see how their work.
 
 get_links
 This functionality get only the links of the preeliminary views of the news (is recommendable that you open the
@@ -29,7 +37,7 @@ parameters and obtain the elements of the previews of the news.
 
 finder
 This is like a search engine, you give it a keyword list and some parameters and gives you the elements of all
-those news that contain the keyword list, it is still NOT finished.
+those news that contain the keyword list.
 ------------------------------------------------------------------------------------------------------------------
 The file test_appunitest execute unitary test for each functionality 
 
@@ -42,4 +50,4 @@ For get_elements it only test if the number of elements of the list given is cor
 For get_previews it execute two test, as it gives you a list of list, it test first the longitude of the main list
 later it test the longitude of each intern list.
 
-For finder the unit test is not finished.
+For finder we use an independent unit testing file (test_unittest_find) for the several quantity of requests.
