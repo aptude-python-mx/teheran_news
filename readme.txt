@@ -19,7 +19,7 @@ Usage
 
 The file app.py is to test scrapper.py that is the core library of the crawler, it has commented the four 
 functionalities (get_links, get_elements, get_previews and finder) you can uncomment each block to see how 
-their work.
+it work.
 
 get_links
 This functionality get only the links of the preeliminary views of the news (is recommendable that you open the
