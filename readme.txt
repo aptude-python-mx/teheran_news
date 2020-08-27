@@ -8,9 +8,9 @@ Prerequsites
 Python3 and beautifulsoup library installed
 -------------------------------------------
 
-***********
-*IMPORTANT*
-***********
+************************************************
+*IMPORTANT, BUG TO BE FIXED IN THE NEXT VERSION*
+************************************************
 Due the high quantity of request of some functionalities, sometimes it will throws you an AtributteError, if you 
 try to enter to the pages that you are using for testing at the same time, you could see the error 
 (503 Backend fetch failed)
