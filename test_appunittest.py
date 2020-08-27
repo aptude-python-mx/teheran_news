@@ -1,24 +1,23 @@
 import unittest
 from scrapper import Get_news
 
+
 class TestScrapper(unittest.TestCase):
 
     def setUp(self):
-        news_1 = Get_news()
-        news_2 = Get_news()
-        news_3 = Get_news()
+        news = Get_news()
 
-        self.test_news_links_1 = news_1.get_links("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=7&tp=698")
-        self.test_news_links_2 = news_2.get_links("https://www.tehrantimes.com/page/archive.xhtml?mn=1&wide=0&ms=0&pi=2")
-        self.test_news_links_3 = news_3.get_links("https://www.tehrantimes.com/archive?pi=1&tp=699&ms=0&mn=1")
+        self.test_news_links_1 = news.get_links("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=2&tp=697")
+        self.test_news_links_2 = news.get_links("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=3&tp=699")
+        self.test_news_links_3 = news.get_links("https://www.tehrantimes.com/archive?tp=700")
 
-        self.test_news_elements_1 = news_1.get_elements("https://www.tehrantimes.com/news/451650/VAR-to-be-used-in-ACL-from-quarters")
-        self.test_news_elements_2 = news_2.get_elements("https://www.tehrantimes.com/news/451689/Daesh-would-have-reached-heart-of-Europe-without-Gen-Soleimani")
-        self.test_news_elements_3 = news_3.get_elements("https://www.tehrantimes.com/news/451679/Iranian-airports-among-best-in-West-Asia-and-Africa-region")
+        self.test_news_elements_1 = news.get_elements("https://www.tehrantimes.com/news/451650/VAR-to-be-used-in-ACL-from-quarters")
+        self.test_news_elements_2 = news.get_elements("https://www.tehrantimes.com/news/451689/Daesh-would-have-reached-heart-of-Europe-without-Gen-Soleimani")
+        self.test_news_elements_3 = news.get_elements("https://www.tehrantimes.com/news/451679/Iranian-airports-among-best-in-West-Asia-and-Africa-region")
 
-        self.test_news_previews_1 = news_1.get_previews("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=7&tp=698")
-        self.test_news_previews_2 = news_2.get_previews("https://www.tehrantimes.com/page/archive.xhtml?mn=1&wide=0&ms=0&pi=2")
-        self.test_news_previews_3 = news_3.get_previews(pi=1,tp='sports',mn=5,yr=2020)
+        self.test_news_previews_1 = news.get_previews("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=3&tp=702")
+        self.test_news_previews_2 = news.get_previews("https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi=2&tp=700")
+        self.test_news_previews_3 = news.get_previews(pi=1,tp='sports',mn=5,yr=2020)
 
     def tearDown(self):
         pass
@@ -65,6 +64,7 @@ class TestScrapper(unittest.TestCase):
         self.to_test_prev_len(self.test_news_previews_1)
         self.to_test_prev_len(self.test_news_previews_2)
         self.to_test_prev_len(self.test_news_previews_3)
+
 
 if __name__ == '__main__':
     unittest.main()

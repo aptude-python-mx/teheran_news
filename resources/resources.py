@@ -18,8 +18,8 @@ class Resources():
         
         img = soup.find(class_="third-news")
         res = []
-        for link in img.find_all('a', href=True):
-            full_link = 'https://www.tehrantimes.com' + link['href']
+        for i in img.find_all('a', href=True):
+            full_link = 'https://www.tehrantimes.com' + i['href']
             if full_link not in res: 
                 res.append(full_link) 
         return(res)
@@ -31,7 +31,7 @@ class Resources():
         #topic
         res = []
         category = soup.find(class_="breadcrumb")
-        enlaces = category.find_all('li')
+        enlaces = category.find('li')
         for enlace in enlaces:
             res.append(enlace.text)
 
@@ -115,6 +115,27 @@ class Resources():
         results = list(zip(res_title,res_date,res_link,res_text))
         list_results = [list(elem) for elem in results]
         return list_results
+
+    @classmethod
+    def change_kwargs_name(cls, kwargs):
+        try:
+            if kwargs['tp'] == 'Society' or kwargs['tp'] == 'society':
+                kwargs['tp'] = '696'
+            elif kwargs['tp'] == 'Economy' or kwargs['tp'] == 'economy':
+                kwargs['tp'] = '697'
+            elif kwargs['tp'] == 'Politics' or kwargs['tp'] == 'politics':
+                kwargs['tp'] = '698'
+            elif kwargs['tp'] == 'Sports' or kwargs['tp'] == 'sports':
+                kwargs['tp'] = '699'
+            elif kwargs['tp'] == 'Culture' or kwargs['tp'] == 'culture':
+                kwargs['tp'] = '700'
+            elif kwargs['tp'] == 'International' or kwargs['tp'] == 'international':
+                kwargs['tp'] = '702'
+            else:
+                return print("Topic {} doesn't exist".format(kwargs['tp']))
+        except:
+            pass
+        return kwargs
 
     @classmethod
     def pretty(cls, data):

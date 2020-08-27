@@ -26,26 +26,36 @@ class Get_news():
                 files.append(resource.preview_resource(i))
             return(files)
         if kwargs:
-            try:
-                if kwargs['tp'] == 'Society' or kwargs['tp'] == 'society':
-                    kwargs['tp'] = '696'
-                elif kwargs['tp'] == 'Economy' or kwargs['tp'] == 'economy':
-                    kwargs['tp'] = '697'
-                elif kwargs['tp'] == 'Politics' or kwargs['tp'] == 'politics':
-                    kwargs['tp'] = '698'
-                elif kwargs['tp'] == 'Sports' or kwargs['tp'] == 'sports':
-                    kwargs['tp'] = '699'
-                elif kwargs['tp'] == 'Culture' or kwargs['tp'] == 'culture':
-                    kwargs['tp'] = '700'
-                elif kwargs['tp'] == 'International' or kwargs['tp'] == 'international':
-                    kwargs['tp'] = '702'
-                else:
-                    return print("Topic {} doesn't exist".format(kwargs['tp']))
-            except:
-                pass
+            resource.change_kwargs_name(kwargs)
 
         query = ''
         for key, value in kwargs.items():
             query = query + '&'+ key + "=" + str(value)
         return cls.get_previews('https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0' + query)
 
+    @classmethod
+    def find(cls, *args, **kwargs):
+        resource.change_kwargs_name(kwargs)
+        query = ''
+        for key, value in kwargs.items():
+            query = query + '&'+ key + "=" + str(value)
+        y = cls.get_links('https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0' + query)
+
+        files_list = []
+        final_list = []
+
+        for main_list in y:
+            for nested_list in main_list:
+                d = cls.get_elements(nested_list)
+                files_list.append(d)
+        
+        for main_list in files_list:
+            for nested_list in main_list:
+                for double_nested_list in nested_list:
+                    try:
+                        my_string = ''.join(double_nested_list)
+                    except:
+                        pass
+                    if all(word in my_string for word in args[0]):
+                        final_list.append(nested_list)
+        return(final_list)
