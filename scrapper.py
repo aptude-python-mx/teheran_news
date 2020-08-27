@@ -39,15 +39,15 @@ class Get_news():
         query = ''
         for key, value in kwargs.items():
             query = query + '&'+ key + "=" + str(value)
-        y = cls.get_links('https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0' + query)
+        full_links = cls.get_links('https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0' + query)
 
         files_list = []
         final_list = []
 
-        for main_list in y:
+        for main_list in full_links:
             for nested_list in main_list:
-                d = cls.get_elements(nested_list)
-                files_list.append(d)
+                list_elements = cls.get_elements(nested_list)
+                files_list.append(list_elements)
         
         for main_list in files_list:
             for nested_list in main_list:
