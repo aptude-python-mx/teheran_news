@@ -40,7 +40,8 @@ finder
 This is like a search engine, you give it a keyword list and some parameters and gives you the elements of all
 those news that contain the keyword list.
 ------------------------------------------------------------------------------------------------------------------
-The file test_appunitest execute unitary test for each functionality 
+The file test_appunitest execute unitary test for each functionality, the light version have less request}
+to avoid the posibility of AttributeError.
 
 For get_links there are two test, one is for test if the list of links given have the correct number of elements
 and the second is to test that all the links given are not empty and start with the domain name of the site 
