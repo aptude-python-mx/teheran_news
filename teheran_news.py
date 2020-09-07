@@ -31,14 +31,14 @@ class Teheran_news(Article):
 
         while True:
             self.num += 1
-            if self.num % 30 == 1:
+            if self.num % 31 == 1:
                 page_news += 1
                 if the_topic == None:
                     prelink = 'https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi={}'.format(page_news)
                 else:
                     prelink = 'https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi={}&tp={}'.format(page_news,the_topic)
                 the_urls = self.pages([prelink])
-                if not the_urls:
+                if not the_urls or len(the_urls) < 30:
                     print("Is the end of the news")
                     break
                 else:
