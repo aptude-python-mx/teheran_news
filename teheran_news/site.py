@@ -14,10 +14,10 @@ class Teheran_news(Article):
         for link in list_link:
             the_soup = soup(link)
             date = the_soup.find("span", {"class": "item-item ltr"})
-            img = the_soup.find(class_="third-news")
+            links = the_soup.find(class_="third-news")
 
             try:
-                for link in img.find_all('a', href=True): 
+                for link in links.find_all('a', href=True): 
                     full_link = 'https://www.tehrantimes.com' + link['href']
                     if full_link not in res_link: 
                         res_link.append(full_link)

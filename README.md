@@ -8,5 +8,8 @@ Prerequsites
 
 Python3 and beautifulsoup library installed
 
+Usage
+
+import teheran_news
  
  
