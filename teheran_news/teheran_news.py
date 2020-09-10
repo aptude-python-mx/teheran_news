@@ -1,5 +1,5 @@
-from article import Article
-from utilities import soup, change_topic_name
+from teheran_news.article import Article
+from teheran_news.utilities import soup, change_topic_name
 from itertools import islice
 
 class Teheran_news(Article):

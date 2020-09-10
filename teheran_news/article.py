@@ -1,7 +1,7 @@
 import datetime
-from objectview import Objectview
+from teheran_news.objectview import Objectview
 from itertools import islice
-from utilities import soup
+from teheran_news.utilities import soup
 
 class Article:
     
