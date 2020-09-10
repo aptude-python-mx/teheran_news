@@ -40,7 +40,7 @@ class Teheran_news(Article):
                     prelink = 'https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi={}'.format(page_news)
                 else:
                     prelink = 'https://www.tehrantimes.com/page/archive.xhtml?wide=0&ms=0&pi={}&tp={}'.format(page_news,the_topic)
-                the_urls = self.pages([prelink])
+                the_urls = self.pages( [prelink] )
                 #if not the_urls or len(the_urls) < 30:
                 if not the_urls:
                     print("Is the end of the news")
