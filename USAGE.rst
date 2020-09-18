@@ -2,5 +2,5 @@ Usage
 
 To use teheran_news in a project:
 
-import teheran_news
+from teheran_news.teheran_news import Teheran_news
 

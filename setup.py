@@ -22,6 +22,6 @@ setup(
     description='A web scrapping tool for teherannews.com',
     packages=find_packages(),
     python_requires='>=3',
-    install_requires=['bs4 ==0.0.1', 'urllib3==1.25.7'],
+    install_requires=['bs4 ==0.0.1', 'urllib3==1.24.3'],
     include_package_data=True
 )

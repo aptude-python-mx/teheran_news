@@ -1,4 +1,4 @@
-from teheran_news import Teheran_news
+from teheran_news.teheran_news import Teheran_news
 from itertools import islice
 
 
